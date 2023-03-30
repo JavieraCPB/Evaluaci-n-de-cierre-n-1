@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <title>SEGUNDO</title>
+        <meta name="description" content="Evaluación de cierre de la Unidad I: Bocetos de introducción a la programación" />
+    </head>
+    <body>
+        <nav>
+            <a href="index.html">Javiera Pacheco</a>
+            <a href="page-1.html">Primero</a>
+            <a href="page-2.html">Segundo</a>
+            <a href="page-3.html">Tercero</a>
+            <a href="page-4.html">Cuarto</a>
+        </nav>
+        <main></main>
+        <div>
+            <p id="primerP">Ajuste de <em>Red</em></p>
+            <p id="segundoP">Ajuste de <em>Green</em></p>
+            <p id="tercerP">Ajuste de <em>Blue</em></p>
+        </div>
+        <script>
+            var sliderR;
+            var sliderG;
+            var sliderB;
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+    selectAll('a')[1].addClass('aqui');
+    sliderR = createSlider(0, 255);
+sliderR.position(830,430)
+  sliderG = createSlider(0, 255);
+sliderG.position(830,479)
+  sliderB = createSlider(0, 255);
+sliderB.position(830,530)
+}
+function draw() {
+    colorMode(RGB, 255, 255, 255);
+    textFont('Oswald');
+  const r = sliderR.value();
+  const g = sliderG.value();
+  const b = sliderB.value();
+  fill(r, g, b)
+  rect(0, 0, windowWidth, windowHeight);
+
+  if (b < 30) {
+    fill(255);
+  } else {
+    fill(0);
+  }
+ 
+  let valores = [sliderR.value(), sliderG.value(), sliderB.value()];
+  let separator = ', ';
+  let textovalores = join(valores, separator);
+                fill("#dddddd");
+                textAlign(CENTER, CENTER);
+                textSize(20);
+text("R " + sliderR.value() + " G " + sliderG.value() + " B " + sliderB.value(), windowWidth / 2, windowHeight - 40);
+            }
+
+            function windowResized() {
+                resizeCanvas(windowWidth, windowHeight);
+            }
+        </script>
+    </body>
+</html>
